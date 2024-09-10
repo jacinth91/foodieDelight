@@ -17,8 +17,8 @@ export class RestaurantEditComponent implements OnInit  {
 
   constructor(
     private fb: FormBuilder,
-    private route: ActivatedRoute, // To get the restaurant ID from the route
-    private restaurantService: RestaurantService, // To fetch and update restaurant data
+    private route: ActivatedRoute,
+    private restaurantService: RestaurantService, 
     private router: Router
   ) {
     this.restaurantForm = this.fb.group({
@@ -43,8 +43,13 @@ export class RestaurantEditComponent implements OnInit  {
   onSubmit(): void {
     if (this.restaurantForm.valid) {
       this.restaurantService.updateRestaurant(this.restaurantId, this.restaurantForm.value);
-      this.router.navigate(['/']); // Navigate back to the restaurant list after updating
+      this.router.navigate(['/']); 
+      this.restaurantForm.markAllAsTouched();
+
     }
+  }
+  goBack(): void {
+    this.router.navigate(['/']); 
   }
 
 }

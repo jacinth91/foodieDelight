@@ -17,12 +17,12 @@ export class RestaurantAddComponent {
     private restaurantService: RestaurantService,
     private router: Router
   ) {
-    // Initialize the form with validators
+   
     this.restaurantForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
       location: ['', Validators.required],
-      image: [''], // Optional
+      image: [''],
     });
   }
 
@@ -30,6 +30,12 @@ export class RestaurantAddComponent {
     if (this.restaurantForm.valid) {
       this.restaurantService.addRestaurants(this.restaurantForm.value);
       this.router.navigate(['/']);
+    }else{
+      this.restaurantForm.markAllAsTouched();
+
     }
+  }
+  goBack(): void {
+    this.router.navigate(['/']); 
   }
 }

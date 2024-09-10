@@ -3,7 +3,7 @@
       <h2 class="text-2xl font-bold text-center mb-6">Add New Restaurant</h2>
   
       <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
-        <!-- Restaurant Name -->
+       
         <div class="mb-4">
           <label for="name" class="block text-gray-700 font-semibold mb-2">Restaurant Name</label>
           <input
@@ -13,12 +13,12 @@
             type="text"
             placeholder="Enter restaurant name"
           />
-          <div *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched" class="text-red-500 mt-2">
+          <div *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched" class="text-red-500 text-sm mt-1">
             Name is required.
           </div>
         </div>
   
-        <!-- Restaurant Description -->
+        
         <div class="mb-4">
           <label for="description" class="block text-gray-700 font-semibold mb-2">Description</label>
           <textarea
@@ -32,7 +32,7 @@
           </div>
         </div>
   
-        <!-- Restaurant Location -->
+       
         <div class="mb-4">
           <label for="location" class="block text-gray-700 font-semibold mb-2">Location</label>
           <input
@@ -47,7 +47,7 @@
           </div>
         </div>
   
-        <!-- Image URL (Optional) -->
+       
         <div class="mb-4">
           <label for="image" class="block text-gray-700 font-semibold mb-2">Image URL (Optional)</label>
           <input
@@ -59,14 +59,24 @@
           />
         </div>
   
-        <!-- Submit Button -->
+       
+        <div class="flex justify-between">
+          
+          <button
+            type="button"
+            (click)="goBack()"
+            class="bg-gray-500 text-white font-semibold py-2 px-2 rounded-lg hover:bg-gray-600 transition duration-300"
+          >
+            Back
+          </button>
         <button
           type="submit"
-          class="w-full bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300"
-          [disabled]="restaurantForm.invalid"
+          class="w-1/2 bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300"
+          
         >
           Add Restaurant
         </button>
+        </div>
       </form>
     </div>
   </div>
