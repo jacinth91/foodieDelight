@@ -9,7 +9,7 @@ export class RestaurantService {
     {
       id:1,
       name: "KFC",
-      cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d0450ce1a6ba19ea60cd724471ed54a8",
+      image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d0450ce1a6ba19ea60cd724471ed54a8",
       description: "Pushkar Enclave",
       location: "Paschim Vihar",
     },
@@ -25,6 +25,10 @@ export class RestaurantService {
     resturant.id = this.restaurants.length + 1;
     this.restaurants.push(resturant);
   }
+  getRestaurantById(id: number): Restaurant | undefined {
+    return this.restaurants.find((r) => r.id === id);
+  }
+
 
   updateRestaurant(id: number, updateRestaurant: Restaurant): void {
     const index = this.restaurants.findIndex((r) => r.id === id);
