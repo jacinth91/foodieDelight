@@ -10,7 +10,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <div *ngFor="let restaurant of restaurants" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300 ease-in-out">
       <!-- Restaurant Image -->
-      <img class="w-full h-48 object-cover rounded-lg mb-4" [src]="restaurant.Image || 'https://via.placeholder.com/400x200'" alt="Restaurant Image">
+      <img class="w-full h-48 object-cover rounded-lg mb-4" [src]="restaurant.image || 'https://via.placeholder.com/400x200'" alt="Restaurant Image">
 
       <!-- Restaurant Details -->
       <div>
