@@ -1,1 +1,33 @@
-<p>restaurant-list works!</p>
+<div class="container mx-auto mt-10 p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-lg font-bold text-gray-800">Top Restaurants in your area</h1>
+    <a routerLink="/add" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out">
+      Add New Restaurant
+    </a>
+  </div>
+
+  <!-- Grid Layout for Restaurants -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let restaurant of restaurants" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300 ease-in-out">
+      <!-- Restaurant Image -->
+      <img class="w-full h-48 object-cover rounded-lg mb-4" [src]="restaurant.cloudinaryImageId || 'https://via.placeholder.com/400x200'" alt="Restaurant Image">
+
+      <!-- Restaurant Details -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900">{{ restaurant.name }}</h3>
+        <p class="text-gray-600 mb-2">{{ restaurant.description }}</p>
+        <p class="text-gray-500 mb-4"><i class="fas fa-map-marker-alt"></i> {{ restaurant.location }}</p>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-between items-center">
+          <a [routerLink]="['/edit', restaurant.id]" class="text-blue-500 hover:underline">Edit</a>
+          <button
+            class="bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 transition duration-300 ease-in-out"
+            (click)="deleteRestaurant(restaurant.id)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,4 +3,5 @@ export interface Restaurant {
   name: string;
   description: string;
   location: string;
+  cloudinaryImageId:string
 }

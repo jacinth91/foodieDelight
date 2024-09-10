@@ -11,10 +11,13 @@ import { RestaurantEditComponent } from './app/restaurant-edit/reataurant-edit.c
   standalone: true,
   imports: [RouterOutlet],
   template: `
-    <div class="container mx-auto p-6">
-      <h1 class="text-3xl font-bold text-center mb-4">Foodie Delight</h1>
-      <router-outlet></router-outlet>
+  <div class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white h-12 shadow-lg fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto flex justify-between items-center h-full">
+    <h1 class="text-lg font-extrabold">Foodie Delight</h1>
+      
     </div>
+    </div>
+    <router-outlet></router-outlet>
   `,
 })
 export class App {
@@ -25,9 +28,9 @@ bootstrapApplication(App, {
   providers: [
     provideRouter([
       { path: '', component: RestaurantListComponent },
-      { path: 'restaurants/add', component: RestaurantAddComponent },
-      { path: 'restaurants/edit/:id', component: RestaurantEditComponent },
-      { path: '', redirectTo: '/restaurants', pathMatch: 'full' },
+      { path: 'add', component: RestaurantAddComponent },
+      { path: 'edit/:id', component: RestaurantEditComponent },
+      { path: '', redirectTo: '', pathMatch: 'full' },
     ]),
   ],
 }).catch((err) => console.log(err));

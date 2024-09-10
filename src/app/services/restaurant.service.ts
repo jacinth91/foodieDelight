@@ -5,7 +5,15 @@ import { Restaurant } from '../models/restaurant.model';
   providedIn: 'root',
 })
 export class RestaurantService {
-  private restaurants: Restaurant[] = [];
+  private restaurants: Restaurant[] = [
+    {
+      id:1,
+      name: "KFC",
+      cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d0450ce1a6ba19ea60cd724471ed54a8",
+      description: "Pushkar Enclave",
+      location: "Paschim Vihar",
+    },
+  ];
 
   constructor() {}
 
